@@ -1,8 +1,9 @@
 // For TDD - start with a simple example and build from there - so starting with a collection of numbers
 import { NumbersCollection } from '../Collections/NumbersCollection';
+import { Sortable } from '../Sortable/Sortable';
 export class Sorter {
   // Remember this is a shortcut to assignment and member initilisation
-  constructor(public collection: NumbersCollection) {}
+  constructor(public collection: Sortable) {}
 
   sort(): void {
     // First Implementation of Sort
