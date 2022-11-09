@@ -1,17 +1,19 @@
 // For TDD - start with a simple example and build from there - so starting with a collection of numbers
 import { Sortable } from '../Sortable/Sortable';
-export class Sorter {
+export abstract class Sorter {
   // Remember this is a shortcut to assignment and member initilisation
-  constructor(public collection: Sortable) {}
-
+  abstract compare(leftIndex: number, rightIndex: number): boolean;
+  abstract swap(leftIndex: number, rightIndex: number): void;
+  //length is a getter so we just treat it like a property
+  abstract length: number;
   sort(): void {
     // First Implementation of Sort
-    const { length } = this.collection;
+    const { length } = this;
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
         // If an array of numbers
-        if (this.collection.compare(j, j + 1)) {
-          this.collection.swap(j, j + 1);
+        if (this.compare(j, j + 1)) {
+          this.swap(j, j + 1);
         }
       }
     }
